@@ -1,10 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
-
 body {
-    background-color: black;
+    background: black;
     color: white;
-    font-family: 'Cutive Mono', monospace;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
     overflow: hidden;
+    animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
 }
 
 header {
@@ -18,34 +24,12 @@ h1 {
     letter-spacing: 5px;
 }
 
-h2 {
-    font-size: 1.5rem;
-    opacity: 0.8;
-}
-
-#chaos {
-    position: relative;
-    height: 200px;
-    margin: 50px 0;
-    text-align: center;
-}
-
-.random-text {
-    position: absolute;
-    font-size: 1.5rem;
-    animation: glitch 0.2s infinite alternate;
-    width: 100%;
-}
-
-@keyframes glitch {
-    0% { transform: translateX(-2px); color: red; }
-    50% { transform: translateX(2px); color: lime; }
-    100% { transform: translateX(-2px); color: blue; }
-}
-
-#content {
-    text-align: center;
-    margin: 50px auto;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
 }
 
 .button {
@@ -54,21 +38,30 @@ h2 {
     border: 2px dashed white;
     color: white;
     text-decoration: none;
-    animation: flicker 1s infinite alternate;
+    animation: glitch 0.2s infinite alternate;
 }
 
-@keyframes flicker {
-    0% { opacity: 1; }
-    50% { opacity: 0.6; }
-    100% { opacity: 1; }
-}
-
-#wahnsinn {
-    text-align: center;
-    margin: 50px auto;
+@keyframes glitch {
+    0% { transform: translateX(-2px); color: red; }
+    50% { transform: translateX(2px); color: lime; }
+    100% { transform: translateX(-2px); color: blue; }
 }
 
 footer {
-    text-align: left;
+    text-align: right;
     padding: 20px;
+    animation: bounce 2s infinite;
 }
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+}
+
+@keyframes static {
+    0% { background: url('static1.png'); }
+    50% { background: url('static2.png'); }
+    100% { background: url('static3.png'); }
+}
+
+
